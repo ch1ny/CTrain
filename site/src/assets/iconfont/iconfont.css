@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2733850 */
+  src: url('iconfont.woff2?t=1628650158240') format('woff2'),
+       url('iconfont.woff?t=1628650158240') format('woff'),
+       url('iconfont.ttf?t=1628650158240') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-huochezhan:before {
+  content: "\e603";
+}
+
+.icon-huochepiao:before {
+  content: "\e89a";
+}
+
+.icon-credentials_icon:before {
+  content: "\e674";
+}
+

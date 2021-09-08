@@ -1,0 +1,12 @@
+out
+target
+/src/main/java/Utils/MyConfig.java
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
