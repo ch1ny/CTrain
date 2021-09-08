@@ -2,6 +2,25 @@
 
 * 山东大学2019级软件工程数据库系统课程设计项目。课题：火车票售票系统。
 
+# FrameWork
+
+* **前端**：
+  * Vue.js
+  * ElementUI
+  * axios
+  * jsonwebtoken
+  * js-pinyin
+  * vue-cropper
+* **后端**：
+  * WebServlet
+  * Maven
+    * jjwt
+    * fastjson
+    * javax.mail
+    * alipay-sdk
+    * thumbnailator
+  * MySQL
+
 # Release
 
 * **正式地址**：https://12306.aiolia.top/ 或 https://12306.aioliaregulus.cn/
