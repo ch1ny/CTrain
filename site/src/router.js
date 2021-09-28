@@ -52,7 +52,6 @@ const routes = [
         component: resolve => require(['./pages/Info'], resolve),
         meta: {
             title: '个人信息',
-            isKeepAlive: true,
         }
     },
     {
@@ -88,21 +87,33 @@ const routes = [
         }
     },
     {
-        path: '/admin/index',
+        path: '/admin',
         name: 'AdminIndex',
         component: resolve => require(['./pages/Admin/Index'], resolve),
+        redirect: "/admin/route",
         meta: {
             title: '后台管理界面',
-            isKeepAlive: true,
-        }
-    },
-    {
-        path: '/admin/route/:trainId',
-        name: 'TrainRoute',
-        component: resolve => require(['./pages/Admin/Trains'], resolve),
-        meta: {
-            title: '列车管理'
         },
+        children: [
+            {
+                path: 'route',
+                name: 'TrainRoutes',
+                component: resolve => require(['./components/Admin/Trains.vue'], resolve),
+            },
+            {
+                path: 'user',
+                name: 'AdminUsers',
+                component: resolve => require(['./components/Admin/Users.vue'], resolve),
+            },
+            {
+                path: 'route/:trainId',
+                name: 'TrainRoute',
+                component: resolve => require(['./pages/Admin/Trains'], resolve),
+                meta: {
+                    title: '列车管理'
+                },
+            },
+        ]
     },
     {
         path: '/pay/success',

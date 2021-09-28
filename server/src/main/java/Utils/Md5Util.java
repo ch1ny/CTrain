@@ -21,11 +21,15 @@ public class Md5Util {
 
     public static String SaltMd5(String info, String password) throws NoSuchAlgorithmException {
         StringBuilder sb = new StringBuilder(18);
-        for (int i = 0; i < info.length(); i++) {
-            sb.append(info.charAt(i) + info.charAt(i));
+        sb.append(info.charAt(0) + info.charAt(info.length() - 1));
+        int saltIndex = info.charAt(0);
+        for (int i = 1; i < info.length(); i++) {
+            sb.append(info.charAt(i - 1) + info.charAt(i));
+            saltIndex += info.charAt(i);
         }
+        saltIndex %= 10;
         String salt = sb.toString();
-        return PswToMd5(password + salt);
+        return PswToMd5(salt.substring(0, saltIndex) + password + salt.substring(saltIndex));
     }
 
 }

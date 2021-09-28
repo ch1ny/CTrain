@@ -1,3 +1,70 @@
+# SQL设计
+
+## 数据表
+
+### Users
+
+* **user_id**：用户身份证号码
+* **user_email**：用户登录邮箱
+* **user_name**：用户姓名
+* **user_password**：用户密码（加盐MD5）
+* **user_avatar**：用户头像
+* **avatar**：用户头像（缩略图）
+
+### Friends
+
+* **user_id**：用户身份证号码
+* **friend_id**：代购旅客身份证号码
+* **friend_name**：代购旅客姓名
+
+### Admin
+
+* **user_id**：管理员用户身份证号码
+
+### Stations
+
+* **station_name**：火车站站名
+* **location**：火车站所在城市名
+
+### Trains
+
+* **train_id**：火车车次号
+* **train_type**：火车类型
+
+### Seats
+
+* **train_id**：火车车次号
+* **carriage_id**：车厢号
+* **seat_id**：座位号
+* **seat_type**：座位类型
+* **price**：单位里程票价
+
+### TrainStation
+
+* **train_id**：火车车次号
+* **station_name**：停靠车站站点名
+* **stop_index**：停靠站序
+* **day_num**：发车天数
+* **arrive_time**：进站时刻
+* **stop_time**：停靠时长
+* **distance**：行驶里程
+
+### Tickets
+
+* **ticket_id**：订单号
+* **user_id**：购票用户身份证
+* **passenger_id**：乘客身份证
+* **owner**：乘客姓名
+* **train_id**：火车车次号
+* **off_date**：火车出发日期
+* **from_station**：上车车站
+* **to_station**：下车车站
+* **carriage_id**：车厢号
+* **seat_id**：座位号
+* **price**：车票价格
+* **purchase_time**：购票时间
+* **purchased**：是否付款
+
 # 核心SQL
 
 ## 查询从A到B的火车

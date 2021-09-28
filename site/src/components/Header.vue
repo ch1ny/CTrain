@@ -31,7 +31,7 @@ export default {
 		return {
 			noToken: true,
 			username: "",
-			avatar: "",
+			avatar: localStorage.getItem("avatar"),
 			nameColor: "#000",
 			amAdmin: false,
 		};
@@ -55,7 +55,7 @@ export default {
 			this.$router.push({ path: "/register" });
 		},
 		goToAdmin() {
-			this.$router.push({ path: "/admin/index" });
+			this.$router.push({ path: "/admin" });
 		},
 		async init() {
 			this.noToken = localStorage.getItem("token") == null;
@@ -77,7 +77,7 @@ export default {
 				if (res.data.code == 0) {
 					this.amAdmin = true;
 				}
-				if (localStorage.getItem("avatar") == null) {
+				if (this.avatar == null) {
 					res = await $ajax.post(
 						"/user/getThumbnailAvatar",
 						{},
@@ -132,14 +132,6 @@ export default {
 	},
 	created() {
 		this.init();
-	},
-	watch: {
-		$route(to, from) {
-			if (to.path == "/" && from.path.match(/\/login/)) {
-				console.log("init");
-				this.init();
-			}
-		},
 	},
 };
 </script>

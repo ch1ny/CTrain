@@ -15,7 +15,9 @@
 							<el-tooltip class="item" effect="dark" placement="right-end">
 								<div slot="content">为了保障您的使用体验，<br />请尽可能上传7M以下的图片</div>
 								<el-upload class="avatar-uploader" action="" :show-file-list="false" :on-change="imgCropper" :auto-upload="false" ref="upload">
-									<el-image style="width: 10vw; height: 10vw; float: left" :src="url"></el-image>
+									<keep-alive>
+										<el-image style="width: 10vw; height: 10vw; float: left" :src="url"></el-image>
+									</keep-alive>
 								</el-upload>
 							</el-tooltip>
 							<div style="width: 10vw; height: 10vw; background: rgba(150, 150, 150, 0.7); position: absolute" v-if="isUpdatingAvatar">
@@ -87,7 +89,7 @@ export default {
 	},
 	data() {
 		return {
-			url: "",
+			url: localStorage.getItem("avatar"),
 			pic: "",
 			cropping: false,
 			myInfo: {},
@@ -122,7 +124,7 @@ export default {
 			this.myInfo.id = token.sub;
 			this.myInfo.email = token.email;
 			this.myInfo.name = token.aud;
-			if (localStorage.getItem("avatar") == null) {
+			if (this.url == null) {
 				let sexCode = Number(
 					this.myInfo.id.substr(this.myInfo.id.length - 2, 1)
 				);
