@@ -23,8 +23,7 @@
 
 # Release
 
-* **正式地址**：https://12306.aiolia.top/ 或 https://12306.aioliaregulus.cn/
-* **备用地址**：http://121.4.250.38:8081/
+* **访问地址**：https://12306.aiolia.top/
 
 # Others
 
